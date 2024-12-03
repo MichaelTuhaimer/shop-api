@@ -14,10 +14,15 @@ class ItemsController < ApplicationController
       name: params[:name],
       category: params[:category],
       price: params[:price],
+      description: params[:description],
       perishable: params[:perishable],
       stock: params[:stock],
     )
-    render :show
+    if @item.valid?
+      render :show, status: 200
+    else
+      render json: { errors: @item.errors.full_messages }, status: 422
+    end
   end
 
   def update
@@ -26,10 +31,15 @@ class ItemsController < ApplicationController
       name: params[:name] || @item.name,
       category: params[:category] || @item.category,
       price: params[:price] || @item.price,
+      description: params[:description] || @item.description,
       perishable: params[:perishable] || @item.perishable,
       stock: params[:stock] || @item.stock,
     )
-    render :show
+    if @item.valid?
+      render :show, status: 200
+    else
+      render json: { errors: @item.errors.full_messages }, status: 422
+    end
   end
 
   def destroy

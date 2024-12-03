@@ -2,6 +2,9 @@ json.id item.id
 json.name item.name
 json.category item.category
 json.price item.price
+json.tax item.tax
+json.total item.total
+json.description item.description
 json.perishable item.perishable
 json.stock item.stock
 json.created_at item.created_at
