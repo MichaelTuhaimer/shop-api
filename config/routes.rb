@@ -13,6 +13,10 @@ Rails.application.routes.draw do
   patch "/items/:id" => "items#update"
   delete "/items/:id" => "items#destroy"
 
+  get "/orders" => "orders#index"
+  get "/orders/:id" => "orders#show"
+  post "/orders" => "orders#create"
+
   post "/users" => "users#create"
 
   post "/sessions" => "sessions#create"
